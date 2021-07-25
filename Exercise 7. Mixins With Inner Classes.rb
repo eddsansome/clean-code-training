@@ -2,10 +2,11 @@
 
 module Mixin
   def you_method
-    something + 3
+    InnerClass.new.call + 3
   end
 
-  def something
-    199
-  end
+  class InnerClass
+    def call
+      199
+    end
 end
