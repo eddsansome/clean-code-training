@@ -2,6 +2,7 @@
 
 require_relative 'sms_notifier'
 require_relative 'tip_form'
+
 class TipsProcessor
   TAX = 0.05
 
