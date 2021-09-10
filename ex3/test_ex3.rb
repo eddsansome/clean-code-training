@@ -17,13 +17,12 @@ class TestExercise3Form < Minitest::Test
   attr_reader :form
 end
 
-
 class TestExercise3TipProcessor < Minitest::Test
   def setup
     @tip_processor = TipsProcessor.new(form: TipForm.new(amount: 100, discount_percentage: 10, tip_percentage: 10))
   end
 
   def test_amount
-    assert_equal @tip_processor.call, "You tips have been processed. Total amount is: 105.0"
+    assert_equal @tip_processor.call, 'You tips have been processed. Total amount is: 105.0'
   end
 end
