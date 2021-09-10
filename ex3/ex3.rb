@@ -10,14 +10,14 @@ class TipsProcessor
   end
 
   def call
-    notifier.call(text: sms_text)
+    notifier.call(text: text)
   end
 
   private
 
   attr_reader :form
 
-  def sms_text
+  def text
     "You tips have been processed. Total amount is: #{total_amount}"
   end
 
