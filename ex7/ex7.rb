@@ -9,6 +9,7 @@ module Mixin
     end
 
     private
+
     def something
       199
     end
@@ -16,7 +17,6 @@ module Mixin
 end
 
 class TestMixins < Test::Unit::TestCase
-
   def setup
     @klass = Mixin::Klass.new
   end

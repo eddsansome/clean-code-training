@@ -29,3 +29,11 @@ class Tipper
 
   attr_reader :amount, :discount_percentage, :tip_percentage
 end
+
+require 'test/unit'
+class TipperTest < Test::Unit::TestCase
+  def test_tip_amount
+    tipper = Tipper.new(amount: 100, tip_percentage: 10, discount_percentage: 10)
+    assert_equal tipper.total, 105.0
+  end
+end

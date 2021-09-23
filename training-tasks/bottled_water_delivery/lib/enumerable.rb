@@ -7,7 +7,7 @@ module Enumerable
       .map { |key, items| [key, items.count] }
       .sort_by(&:first)
 
-    Hash[list]
+    list.to_h
   end
 end
 

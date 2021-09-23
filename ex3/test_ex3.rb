@@ -1,7 +1,7 @@
-require 'minitest/autorun'
+require 'test/unit'
 require_relative 'ex3'
 
-class TestExercise3Form < Minitest::Test
+class TestExercise3Form < Test::Unit::TestCase
   def setup
     @form = TipForm.new(amount: 100, discount_percentage: 10, tip_percentage: 10)
   end
@@ -17,7 +17,7 @@ class TestExercise3Form < Minitest::Test
   attr_reader :form
 end
 
-class TestExercise3TipProcessor < Minitest::Test
+class TestExercise3TipProcessor < Test::Unit::TestCase
   def setup
     @tip_processor = TipsProcessor.new(form: TipForm.new(amount: 100, discount_percentage: 10, tip_percentage: 10))
   end
