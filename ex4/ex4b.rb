@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'test/unit'
 
 # https://en.wikipedia.org/wiki/De_Morgan%27s_laws
@@ -8,18 +6,21 @@ require 'test/unit'
 
 # < ActiveModel::Validator
 class PhoneNumberFormatValidator
-  PHONE_REGEX = /^[0-9]{9}$/
-
   def self.validate(record)
-    if record.phone_number.nil? || (record.phone_number =~ PHONE_REGEX).nil?
-      record.errors[:phone_number] << 'invalid phone number format'
-    end
+    record.errors[:phone_number] << 'invalid phone number format' unless record.valid?
   end
 end
 
 class PhoneRecord
+  PHONE_REGEX = /^[0-9]{9}$/
   def initialize(pn)
     @phone_number = pn
+  end
+
+  def valid?
+    return false if (phone_number =~ PHONE_REGEX).nil?
+
+    true
   end
 
   def errors
